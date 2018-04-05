@@ -9,7 +9,9 @@ public class Main {
 	    testQuickSort();
         Stack st = new Stack();
         String[] a = new String[]{"a", "b"};
-
+        for(int i = 0; i < 10; i++) {
+            System.out.println(new Random().nextInt(5));
+        }
 
 
     }
