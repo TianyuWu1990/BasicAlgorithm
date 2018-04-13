@@ -115,7 +115,7 @@ public List<List<Integer>> subsetsWithDup(int[] nums) {
         //3. exit of the recursion
 
         results.add(new LinkedList<>(subset));
-        //System.out.println(results);
+            //System.out.println(results);
 
 
         //2. disassembly of the recursion
@@ -128,6 +128,7 @@ public List<List<Integer>> subsetsWithDup(int[] nums) {
             subset.add(nums[i]);
             helper(nums, i + 1, subset, results);
             subset.remove(subset.size() - 1);
+
         }
     }
 }
