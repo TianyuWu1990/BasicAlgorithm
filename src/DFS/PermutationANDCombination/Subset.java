@@ -1,7 +1,5 @@
 package DFS.PermutationANDCombination;
 
-import com.sun.xml.internal.ws.api.message.HeaderList;
-
 import java.util.*;
 
 public class Subset {
@@ -12,12 +10,12 @@ public class Subset {
     /**
      * BFS
      * []
-     [1] [2] [3]
-     [1, 2] [1, 3] [2, 3]
-     [1, 2, 3]
-     sort the array first, use a queue first offer each single element, then poll each one and add
-     the next element, until the queue is empty or the rest of elements are
-     smaller than the current largest element.
+     * [1] [2] [3]
+     * [1, 2] [1, 3] [2, 3]
+     * [1, 2, 3]
+     * sort the array first, use a queue first offer each single element, then poll each one and add
+     * the next element, until the queue is empty or the rest of elements are
+     * smaller than the current largest element.
      */
 
     public List<List<Integer>> subsetsBFS(int[] nums) {
@@ -52,10 +50,9 @@ public class Subset {
 
     /**
      * DFS
-     *
      */
 
-    public List<List<Integer>> subsetsDFS (int[] nums) {
+    public List<List<Integer>> subsetsDFS(int[] nums) {
         List<List<Integer>> results = new ArrayList<>();
         Arrays.sort(nums);
         dfs(nums, 0, new ArrayList<Integer>(), results);
@@ -64,10 +61,10 @@ public class Subset {
 
     //1. definition of the recursion: put all elements in nums start from start
     // index with prefix as subset.
-    private void dfs (int[] nums,
-                      int start,
-                      List<Integer> subset,
-                      List<List<Integer>> results) {
+    private void dfs(int[] nums,
+                     int start,
+                     List<Integer> subset,
+                     List<List<Integer>> results) {
 
 
         //3. exit of the recursion
@@ -82,40 +79,42 @@ public class Subset {
 
         //add nums[start]
         subset.add(nums[start]);
+        System.out.println("subset add " + nums[start]);
         dfs(nums, start + 1, subset, results);
 
         //do not add nums[start]
         subset.remove(subset.size() - 1);
+        System.out.println("subset remove last one: ");
         dfs(nums, start + 1, subset, results);
 
     }
 
     /**
      * Given a collection of integers that might contain duplicates, S, return all possible subsets.
-
-     Note:
-     Elements in a subset must be in non-descending order.
-     The solution set must not contain duplicate subsets.
+     * <p>
+     * Note:
+     * Elements in a subset must be in non-descending order.
+     * The solution set must not contain duplicate subsets.
      */
 
-public List<List<Integer>> subsetsWithDup(int[] nums) {
-    List<List<Integer>> results = new LinkedList<>();
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> results = new LinkedList<>();
         Arrays.sort(nums);
-    helper(nums, 0, new LinkedList<Integer>(), results);
+        helper(nums, 0, new LinkedList<Integer>(), results);
         return results;
-}
+    }
 
     //1. definition of the recursion: put all elements in nums start from start
     // index with prefix as subset.
-    private void helper (int[] nums,
-                      int start,
-                      List<Integer> subset,
-                      List<List<Integer>> results) {
+    private void helper(int[] nums,
+                        int start,
+                        List<Integer> subset,
+                        List<List<Integer>> results) {
 
         //3. exit of the recursion
 
         results.add(new LinkedList<>(subset));
-            //System.out.println(results);
+        //System.out.println(results);
 
 
         //2. disassembly of the recursion

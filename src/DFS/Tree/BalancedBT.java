@@ -1,6 +1,9 @@
 package DFS.Tree;
 
 public class BalancedBT {
+    /*
+        Industrial format a result type contains several attributes
+     */
     class ResultType {
         public boolean isBalanced;
         public int maxDepth;
@@ -12,16 +15,16 @@ public class BalancedBT {
 
 
         public boolean isBalanced(TreeNode root) {
-            return helper(root).isBalanced;
+            return maxDepth(root).isBalanced;
         }
 
-        private ResultType helper(TreeNode root) {
+        private ResultType maxDepth(TreeNode root) {
             if (root == null) {
                 return new ResultType(true, 0);
             }
 
-            ResultType left = helper(root.left);
-            ResultType right = helper(root.right);
+            ResultType left = maxDepth(root.left);
+            ResultType right = maxDepth(root.right);
 
             // subtree not balance
             if (!left.isBalanced || !right.isBalanced) {
