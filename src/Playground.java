@@ -11,15 +11,20 @@ public class Playground {
 //        String b = s;
 //        s = "a";
 //        System.out.println(b);
-        int a = 1;
-        int b = a;
+//        int a = 1;
+//        int b = a;
+//
+//        a++;
+//        String aa = "aa";
+//        String bb = aa + "b";
+//        System.out.println(bb);
+//        System.out.println(aa);
+        int i;
+        for(i = 0; i < 10; i++) {
 
-        a++;
-        String aa = "aa";
-        String bb = aa + "b";
-        System.out.println(bb);
-        System.out.println(aa);
-
+        }
+        int x = i;
+        System.out.println(x);
     }
 
 }
